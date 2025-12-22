@@ -521,5 +521,3 @@ MIT License - see [LICENSE](LICENSE)
 ---
 
 **Made with ❤️ by CC Club, Mnnit**
-
-**Last Updated:** January 2025

@@ -1,139 +1,173 @@
 /* 
- * Custom CSS for Computer Coding Club Website
+ * Custom Theme Template for Computer Coding Club Website
  * 
- * This file extends and overrides styles from the Goyo theme.
- * The Goyo theme uses DaisyUI and TailwindCSS, so you can leverage those utilities.
- * 
- * USAGE:
- * 1. To customize colors, uncomment and modify the CSS variables below
- * 2. Add custom component styles as needed
- * 3. Use existing Tailwind/DaisyUI classes in your HTML when possible
- * 
- * IMPORTANT: Keep this file organized with clear section comments
+ * OKLCH FORMAT EXPLAINED:
+ * oklch(L C H)
+ * - L (Lightness): 0 to 1 (0 = black, 1 = white)
+ * - C (Chroma): 0 to 0.4 (0 = gray, higher = more saturated)
+ * - H (Hue): 0 to 360 (color wheel angle)
+ *   Examples: 0=red, 30=orange, 60=yellow, 120=green, 180=cyan, 240=blue, 300=magenta
  */
 
 /* ============================================
-   COLOR CUSTOMIZATION
+   DARK THEME (NIGHT MODE)
    ============================================
-   Uncomment and modify these variables to match your club branding
-   
-   :root {
-     --primary-color: #3b82f6;
-     --secondary-color: #8b5cf6;
-     --accent-color: #f59e0b;
-     --background-color: #1a1a1a;
-     --text-color: #e5e5e5;
-   }
 */
+/* 
+[data-theme="night"] {
+  /* PRIMARY COLOR - Main brand color used for buttons, links, highlights */
+  --color-primary: oklch(0.70 0.17 155);
+  --color-primary-content: oklch(1 0 0);           /* Text on primary color */
+  
+  /* SECONDARY COLOR - Used for accents and highlights */
+  --color-secondary: oklch(0.65 0.16 165);
+  --color-secondary-content: oklch(1 0 0);
+  
+  /* ACCENT COLOR - For special elements and calls-to-action */
+  --color-accent: oklch(0.75 0.18 145);
+  --color-accent-content: oklch(1 0 0);
+  
+  /* NEUTRAL COLOR - For borders, dividers, subtle elements */
+  --color-neutral: oklch(0.30 0.02 155);
+  --color-neutral-content: oklch(0.90 0 0);
+  
+  /* BACKGROUND COLORS - Page backgrounds and surfaces */
+  --color-base-100: oklch(0.15 0.02 155);          /* Main background */
+  --color-base-200: oklch(0.18 0.02 155);          /* Slightly elevated surfaces */
+  --color-base-300: oklch(0.22 0.02 155);          /* More elevated (cards, etc.) */
+  --color-base-content: oklch(0.90 0.02 155);      /* Main text color */
+  
+  /* STATE COLORS - Success, warning, error messages */
+  --color-info: oklch(0.70 0.15 230);              /* Blue for informational */
+  --color-success: oklch(0.70 0.17 155);           /* Green for success */
+  --color-warning: oklch(0.80 0.18 85);            /* Yellow/orange for warnings */
+  --color-error: oklch(0.65 0.20 25);              /* Red for errors */
+}
+ */
 
 /* ============================================
-   TYPOGRAPHY
+   LIGHT THEME (LOFI MODE)
    ============================================
-   Custom font examples (if you want to override theme fonts)
-   
-   body {
-     font-family: 'Inter', system-ui, sans-serif;
-   }
-   
-   h1, h2, h3, h4, h5, h6 {
-     font-family: 'Poppins', system-ui, sans-serif;
-     font-weight: 600;
-   }
 */
+
+/* [data-theme="lofi"] {
+  /* PRIMARY COLOR - Main brand color */
+  --color-primary: oklch(0.60 0.18 155);
+  --color-primary-content: oklch(1 0 0);
+  
+  /* SECONDARY COLOR */
+  --color-secondary: oklch(0.55 0.16 165);
+  --color-secondary-content: oklch(1 0 0);
+  
+  /* ACCENT COLOR */
+  --color-accent: oklch(0.65 0.20 145);
+  --color-accent-content: oklch(1 0 0);
+  
+  /* NEUTRAL COLOR */
+  --color-neutral: oklch(0.35 0.02 155);
+  --color-neutral-content: oklch(0.95 0 0);
+  
+  /* BACKGROUND COLORS - Light, clean backgrounds */
+  --color-base-100: oklch(1 0 0);                  /* Pure white background */
+  --color-base-200: oklch(0.97 0.01 155);          /* Slightly tinted */
+  --color-base-300: oklch(0.93 0.01 155);          /* More noticeable tint */
+  --color-base-content: oklch(0.25 0.02 155);      /* Dark text for readability */
+  
+  /* STATE COLORS */
+  --color-info: oklch(0.60 0.15 230);
+  --color-success: oklch(0.65 0.18 155);
+  --color-warning: oklch(0.75 0.18 85);
+  --color-error: oklch(0.65 0.20 25);
+}
+ */
 
 /* ============================================
-   CUSTOM COMPONENTS
-   ============================================ */
+   ADDITIONAL CUSTOMIZATIONS (OPTIONAL)
+   ============================================
+*/
 
-/* Example: Custom card style for team members
-.team-card {
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
+/* CUSTOM BACKGROUND GRADIENT (Optional)
+ */
+/*
+[data-theme="night"] body {
+  background: linear-gradient(135deg, 
+    oklch(0.15 0.02 155) 0%,
+    oklch(0.12 0.02 160) 100%
+  ) !important;
+  background-attachment: fixed;
 }
 
-.team-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+[data-theme="lofi"] body {
+  background: linear-gradient(135deg, 
+    oklch(1 0 0) 0%,
+    oklch(0.98 0.01 155) 100%
+  ) !important;
+  background-attachment: fixed;
 }
 */
 
-/* Example: Custom badge for tech stack tags
-.tech-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+/* BUTTON HOVER EFFECTS (Optional)
+ */
+/*
+[data-theme="night"] .btn-primary:hover,
+[data-theme="lofi"] .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 */
 
-/* Example: Custom hero section styling
-.hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 4rem 2rem;
-  border-radius: 16px;
-  color: white;
+/* CUSTOM SCROLLBAR (Optional)
+ */
+/*
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+[data-theme="night"] ::-webkit-scrollbar-track {
+  background: oklch(0.15 0.02 155);
+}
+
+[data-theme="night"] ::-webkit-scrollbar-thumb {
+  background: oklch(0.70 0.17 155);
+  border-radius: 6px;
+}
+
+[data-theme="lofi"] ::-webkit-scrollbar-track {
+  background: oklch(0.97 0.01 155);
+}
+
+[data-theme="lofi"] ::-webkit-scrollbar-thumb {
+  background: oklch(0.60 0.18 155);
+  border-radius: 6px;
 }
 */
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+/* GLOW EFFECTS (Optional - for dark theme)
+ */
+/*
+[data-theme="night"] .btn-primary {
+  box-shadow: 0 0 20px rgba(var(--your-rgb-color), 0.3);
+}
 
-/* Example: Mobile-specific adjustments
-@media (max-width: 768px) {
-  .desktop-only {
-    display: none;
-  }
+[data-theme="night"] .btn-primary:hover {
+  box-shadow: 0 0 30px rgba(var(--your-rgb-color), 0.5);
 }
 */
 
-/* ============================================
-   ANIMATION & TRANSITIONS
-   ============================================ */
-
-/* Example: Smooth scroll behavior
-html {
-  scroll-behavior: smooth;
+/* GRADIENT TEXT (Optional)
+ * Make headings use gradient colors
+ */
+/*
+h1, h2, h3 {
+  background: linear-gradient(135deg, 
+    var(--color-primary) 0%, 
+    var(--color-secondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-*/
-
-/* Example: Fade-in animation for cards
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-*/
-
-/* ============================================
-   ACCESSIBILITY
-   ============================================ */
-
-/* Example: Focus states for better keyboard navigation
-a:focus,
-button:focus {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
-}
-*/
-
-/* ============================================
-   ADD YOUR CUSTOM STYLES BELOW
-   ============================================ */
+/*
 
 /* ============================================
    FONT AWESOME PATH FIX FOR GITHUB PAGES
@@ -198,5 +232,4 @@ button:focus {
   src: url(../fonts/fa-regular-400.woff2) format("woff2");
 }
 
-/* Your custom CSS here... */
-
+/* custom CSS here... */
