@@ -96,10 +96,10 @@ edit_url = "https://github.com/Shanu-Kumawat/cc-website/edit/main/"
 # Logo Configuration
 [extra.logo]
 text = "CC Club"                           # Text to show when no logo image
-image_path = ""                            # Add logo: "images/logo.png" (place in static/images/)
+image_path = "images/logo/cclogo.png"                            # Add logo: "images/logo.png" (place in static/images/)
 image_padding = "10px"                     # Padding around logo image
 # dark_image_path = "images/logo-dark.png" # Optional: Different logo for dark theme
-# light_image_path = "images/logo-light.png" # Optional: Different logo for light theme
+# light_image_path = "images/logo/light-bgm-cc-logo.png" # Optional: Different logo for light theme
 
 # Social Media Configuration
 [extra.twitter]
