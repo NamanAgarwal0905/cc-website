@@ -18,36 +18,61 @@ cta_buttons = [
     { text = "Explore Blog", url = "/blog", style = "secondary" },
 ]
 
-# Events Carousel Section - Showcase upcoming and featured events
+# Events Carousel Section - Showcase CC Club MNNIT events
 [[extra.events_carousel]]
-name = "Winter Hackathon 2025"
-type = "48-Hour Coding Marathon | Dec 20-22"
-description = "Join us for our biggest coding event of the year! Build innovative solutions for social good, compete for ₹1,00,000 in prizes, and connect with industry mentors from top tech companies. Free food, swag, and amazing learning opportunities await!"
-image = "events/winter-hackathon-2025.jpg"
+name = "Hack36"
+type = "Annual Hackathon | 36-Hour Sprint"
+description = "The flagship annual hackathon of MNNIT. Bring your ideas to life, compete with the best minds, and win amazing prizes in this high-energy coding marathon."
+image = "landing/events/hack36.jpg"
 
 [[extra.events_carousel]]
-name = "Docker & Kubernetes Workshop"
-type = "Hands-on Workshop | Jan 15, 2026"
-description = "Master containerization and orchestration technologies that power modern cloud infrastructure. Learn Docker fundamentals, Kubernetes deployments, and best practices from industry experts. Includes hands-on labs with real-world projects."
-image = "events/docker-workshop.jpg"
+name = "Contrihub"
+type = "Open Source | Month Long Program"
+description = "A month-long celebration of open source. Learn the ropes of Git, GitHub, and remote collaboration while contributing to real-world projects under expert mentorship."
+image = "landing/events/contrihub.jpg"
 
 [[extra.events_carousel]]
-name = "Summer Hackathon 2025"
-type = "Past Event | Aug 22-24, 2025"
-description = "A massive success with 150 participants and 30 teams! Students built incredible projects addressing real-world challenges. Winners received ₹1L in prizes and multiple projects received industry interest. Check out the amazing projects our community built!"
-image = "events/summer-hackathon-2025.jpg"
+name = "Codesangam"
+type = "Development Challenge | 2-Week Event"
+description = "A massive 2-week development challenge encompassing all tech stacks. Whether it's Web, App, or Systems, build robust solutions and showcase your engineering skills."
+image = "landing/events/webster.png"
 
 [[extra.events_carousel]]
-name = "ContriHub 2025"
-type = "Open Source Celebration | Coming Soon"
-description = "Our annual open source event where beginners learn to contribute to real projects in a supportive environment. Past participants have gone on to become maintainers of popular open source libraries. No experience required - just bring your enthusiasm!"
-image = "events/contrihub-2025.jpg"
+name = "OPC (Open Programming Contest)"
+type = "Competitive Programming | Regular"
+description = "Sharpen your algorithmic skills with our regular competitive programming challenges. Solve complex problems under time pressure and climb the leaderboard."
+image = "landing/events/opc.jpg"
 
 [[extra.events_carousel]]
-name = "AI/ML Workshop Series"
-type = "Weekly Sessions | Every Saturday"
-description = "Dive deep into Machine Learning and Artificial Intelligence with our comprehensive workshop series. From basics of NumPy and Pandas to building neural networks with TensorFlow. Perfect for beginners and intermediate learners."
-image = "events/ai-ml-workshop.jpg"
+name = "Turings Playground"
+type = "AI and ML | Development Challenge"
+description = "An AI-specific development and model training challenge. Apply machine learning algorithms to solve real-world data problems and build intelligent systems."
+image = "landing/events/turings-playground.png"
+
+[[extra.events_carousel]]
+name = "Weekend of Code"
+type = "First-Year Specific | Coding and Dev"
+description = "Designed exclusively for freshmen! Kickstart your tech journey with guided coding and development challenges tailored for those new to the world of programming."
+image = "landing/events/droidrush.jpg"
+
+[[extra.events_carousel]]
+name = "Insomnia"
+type = "CP Marathon | Late Night"
+description = "The ultimate test of endurance. A late-night competitive coding marathon that pushes your logic and problem-solving limits into the early hours of the morning."
+image = "landing/events/Insomnia.jpg"
+
+[[extra.events_carousel]]
+name = "CC Classes"
+type = "Learning | Regular Sessions"
+description = "Regular peer-to-peer learning sessions covering everything from basic data structures to advanced development frameworks and industry best practices."
+image = "landing/events/classes.jpg"
+
+[[extra.events_carousel]]
+name = "Alumni Connects"
+type = "Networking | Interactive Sessions"
+description = "Bridging the gap between campus and industry. Connect with our distinguished alumni working at top tech giants to gain career insights and mentorship."
+image = "landing/events/alumni-connects.jpg"
+
 
 # Features Section - Highlight what CC Club offers
 [extra.features_section]

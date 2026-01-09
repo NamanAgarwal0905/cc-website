@@ -52,48 +52,71 @@
     {% endif %}
 
     {# Events Carousel Section - Animated Image Slider #}
-    {% if section.extra.events_carousel %}
-    <div class="events-carousel-section">
-        <div class="events-grid">
-            <div>
+{% if section.extra.events_carousel %}
+<div class="events-carousel-section">
+    {# Background decorative elements #}
+    <div class="events-bg-decoration"></div>
+    <div class="events-glow-orb events-glow-orb-1"></div>
+    <div class="events-glow-orb events-glow-orb-2"></div>
+
+    <div class="events-intro-text">
+        <div class="events-section-title">Club Events</div>
+        <p class="events-section-subtitle">Participate in the thrill, earn the glory, and enjoy the vibe</p>
+    </div>
+
+    <div class="events-grid">
+        <div class="events-image-wrapper">
+            <div class="events-image-frame">
                 <div class="events-image-container" id="eventsImageContainer"></div>
+                <div class="events-image-glow"></div>
             </div>
-            <div class="events-content">
-                <div class="events-text-content" id="eventsTextContent">
-                    <h3 id="eventName"></h3>
+            <div class="events-counter" id="eventsCounter">
+                <span id="currentEventNum">1</span> / <span id="totalEventNum">0</span>
+            </div>
+        </div>
+        <div class="events-content">
+            <div class="events-text-content" id="eventsTextContent">
+                <div class="events-text-inner">
+                    <h3 id="eventName" class="events-title-animate"></h3>
                     <p class="events-designation" id="eventDesignation"></p>
                     <p class="events-quote" id="eventQuote"></p>
                 </div>
-                <div class="events-controls">
-                    <button id="eventPrevBtn" aria-label="Previous event">
-                        <svg class="arrow-left" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                        </svg>
-                    </button>
-                    <button id="eventNextBtn" aria-label="Next event">
-                        <svg class="arrow-right" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </button>
+            </div>
+            <div class="events-divider"></div>
+            <div class="events-controls">
+                <button id="eventPrevBtn" aria-label="Previous event" class="events-btn">
+                    <svg class="arrow-left" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    <span>Previous</span>
+                </button>
+                <div class="events-progress-bar">
+                    <div class="events-progress-fill" id="eventsProgressFill"></div>
                 </div>
+                <button id="eventNextBtn" aria-label="Next event" class="events-btn">
+                    <span>Next</span>
+                    <svg class="arrow-right" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
         </div>
-
-        <!-- Inject events data for JavaScript -->
-        <script>
-            window.eventsCarouselData = [
-                {% for event in section.extra.events_carousel %}
-                {
-                    name: "{{ event.name }}",
-                    type: "{{ event.type }}",
-                    description: "{{ event.description }}",
-                    image: "{{ get_url(path=config.extra.image_base_url ~ '/' ~ event.image) }}"
-                }{% if not loop.last %},{% endif %}
-                {% endfor %}
-            ];
-        </script>
     </div>
-    {% endif %}
+
+    <script>
+        window.eventsCarouselData = [
+            {% for event in section.extra.events_carousel %}
+            {
+                name: "{{ event.name }}",
+                type: "{{ event.type }}",
+                description: "{{ event.description }}",
+                image: "{{ get_url(path=config.extra.image_base_url ~ '/' ~ event.image) }}"
+            }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ];
+    </script>
+</div>
+{% endif %}
 
     {# Roadmaps Scroll Section - Horizontal Scroll Animation #}
     {% set roadmaps_section = get_section(path="roadmaps/_index.md") %}
@@ -102,7 +125,7 @@
         <div class="roadmaps-sticky-container">
             <div class="roadmaps-intro-text">
                 <div class="roadmaps-title">Learning Roadmaps</div>
-                <p class="roadmaps-subtitle">Scroll down to explore structured learning paths</p>
+                <p class="roadmaps-subtitle">Explore structured learning paths</p>
             </div>
 
             <div class="roadmaps-viewport">
@@ -122,12 +145,11 @@
                 </div>
             </div>
 
-            <div class="roadmaps-scroll-indicator">Scroll Down</div>
         </div>
     </div>
     {% endif %}
 
-    {# Feature Grid - Ashen Minimal Design #}
+    <!-- {# Feature Grid - Ashen Minimal Design #}
     {# Support both extra.features_section.features (new) and extra.features (legacy) for backward compatibility #}
     {% set features = section.extra.features_section.features | default(value=section.extra.features) %}
     {% if features %}
@@ -320,7 +342,7 @@
             </div>
         </div>
     {% endif %}
-{% endblock content %}
+{% endblock content %} -->
 
 {% block js_body %}
     {{ super() }}
