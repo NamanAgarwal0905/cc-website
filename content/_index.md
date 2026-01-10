@@ -12,7 +12,7 @@ version = "2025"
 title = "Computer Coding Club"
 badge = "🚀 Learn, Build, and Grow Together"
 description = "Join a vibrant community of passionate coders, innovators, and tech enthusiasts. We organize workshops, hackathons, coding competitions, and contribute to open source projects that make a difference."
-image = "hero-background.jpg"
+image = "hero-background.webp"
 cta_buttons = [
     { text = "Join Us", url = "/about", style = "primary" },
     { text = "Explore Blog", url = "/blog", style = "secondary" },
@@ -23,55 +23,55 @@ cta_buttons = [
 name = "Hack36"
 type = "Annual Hackathon | 36-Hour Sprint"
 description = "The flagship annual hackathon of MNNIT. Bring your ideas to life, compete with the best minds, and win amazing prizes in this high-energy coding marathon."
-image = "landing/events/hack36.jpg"
+image = "landing/events/hack36.webp"
 
 [[extra.events_carousel]]
 name = "Contrihub"
 type = "Open Source | Month Long Program"
 description = "A month-long celebration of open source. Learn the ropes of Git, GitHub, and remote collaboration while contributing to real-world projects under expert mentorship."
-image = "landing/events/contrihub.jpg"
+image = "landing/events/contrihub.webp"
 
 [[extra.events_carousel]]
 name = "Codesangam"
 type = "Development Challenge | 2-Week Event"
 description = "A massive 2-week development challenge encompassing all tech stacks. Whether it's Web, App, or Systems, build robust solutions and showcase your engineering skills."
-image = "landing/events/webster.png"
+image = "landing/events/webster.webp"
 
 [[extra.events_carousel]]
 name = "OPC (Open Programming Contest)"
 type = "Competitive Programming | Regular"
 description = "Sharpen your algorithmic skills with our regular competitive programming challenges. Solve complex problems under time pressure and climb the leaderboard."
-image = "landing/events/opc.jpg"
+image = "landing/events/opc.webp"
 
 [[extra.events_carousel]]
 name = "Turings Playground"
 type = "AI and ML | Development Challenge"
 description = "An AI-specific development and model training challenge. Apply machine learning algorithms to solve real-world data problems and build intelligent systems."
-image = "landing/events/turings-playground.png"
+image = "landing/events/turings-playground.webp"
 
 [[extra.events_carousel]]
 name = "Weekend of Code"
 type = "First-Year Specific | Coding and Dev"
 description = "Designed exclusively for freshmen! Kickstart your tech journey with guided coding and development challenges tailored for those new to the world of programming."
-image = "landing/events/droidrush.jpg"
+image = "landing/events/droidrush.webp"
 
 [[extra.events_carousel]]
 name = "Insomnia"
 type = "CP Marathon | Late Night"
 description = "The ultimate test of endurance. A late-night competitive coding marathon that pushes your logic and problem-solving limits into the early hours of the morning."
-image = "landing/events/Insomnia.jpg"
+image = "landing/events/Insomnia.webp"
 
 [[extra.events_carousel]]
 name = "CC Classes"
 type = "Learning | Regular Sessions"
 description = "Regular peer-to-peer learning sessions covering everything from basic data structures to advanced development frameworks and industry best practices."
-image = "landing/events/classes.jpg"
+image = "landing/events/classes.webp"
 
 [[extra.events_carousel]]
 name = "Alumni Connects"
 type = "Networking | Interactive Sessions"
 description = "Bridging the gap between campus and industry. Connect with our distinguished alumni working at top tech giants to gain career insights and mentorship."
-image = "landing/events/alumni-connects.jpg"
+image = "landing/events/alumni-connects.webp"
 
 
 # Features Section - Highlight what CC Club offers
