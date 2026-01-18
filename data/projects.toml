@@ -13,7 +13,7 @@ description = "The official website for the Computer Coding Club, built with Zol
 icon = "fa-solid fa-globe"
 tech_stack = ["Zola", "Tailwind CSS", "Rust"]
 repo_url = "https://github.com/cc-mnnit/cc-website"
-authors = ["shanu-kumawat", "contributor2"]
+authors = ["Shanu-Kumawat", "torvalds", "karpathy", "yyx990803"]
 
 [[projects]]
 title = "Algoverse"
@@ -21,7 +21,7 @@ description = "A comprehensive library of algorithms and data structures impleme
 icon = "fa-solid fa-brain"
 tech_stack = ["C++", "Python", "Algorithms"]
 repo_url = "https://github.com/cc-mnnit/algoverse"
-authors = ["algo-expert", "cp-master"]
+authors = ["gaearon", "sindresorhus", "antfu"]
 
 [[projects]]
 title = "Campus Connect"
@@ -29,4 +29,68 @@ description = "A mobile application to bridge the gap between students and admin
 icon = "fa-solid fa-mobile-screen"
 tech_stack = ["Flutter", "Firebase", "Dart"]
 repo_url = "https://github.com/cc-mnnit/campus-connect"
-authors = ["app-dev-lead", "ui-designer"]
+authors = ["bradtraversy", "tiangolo", "addyosmani"]
+
+[[projects]]
+title = "CodeCompete"
+description = "Real-time competitive programming platform with virtual contests, problem archives, and leaderboards. Built for internal club assessments."
+icon = "fa-solid fa-laptop-code"
+tech_stack = ["MERN Stack", "Docker", "Redis"]
+repo_url = "https://github.com/cc-mnnit/code-compete"
+authors = ["taylorotwell", "josevalim", "davidfowl"]
+
+[[projects]]
+title = "ResoBunk"
+description = "A student resource sharing portal for notes, pyq, and study materials. Includes a rating system and anonymous uploads."
+icon = "fa-solid fa-book-bookmark"
+tech_stack = ["Next.js", "Supabase", "TypeScript"]
+repo_url = "https://github.com/cc-mnnit/reso-bunk"
+authors = ["getify", "midudev", "ThePrimeagen"]
+
+[[projects]]
+title = "AttendEase"
+description = "Automated attendance system using facial recognition and geofencing. Reduces proxy attendance and streamlines record keeping."
+icon = "fa-solid fa-user-check"
+tech_stack = ["Python", "OpenCV", "Django"]
+repo_url = "https://github.com/cc-mnnit/attendease"
+authors = ["geohot", "kentcdodds", "wesbos"]
+
+[[projects]]
+title = "ShellX"
+description = "A lightweight, custom shell implementation in Rust with support for piping, redirection, and custom signal handling."
+icon = "fa-solid fa-terminal"
+tech_stack = ["Rust", "Systems", "Linux"]
+repo_url = "https://github.com/cc-mnnit/shellx"
+authors = ["hiteshchoudhary", "ry", "torvalds"]
+
+[[projects]]
+title = "ClubAPI"
+description = "Centralized backend service powering the club's various apps. Handles authentication, event data, and third-party integrations."
+icon = "fa-solid fa-server"
+tech_stack = ["Go", "gRPC", "PostgreSQL"]
+repo_url = "https://github.com/cc-mnnit/club-api"
+authors = ["karpathy", "antfu", "davidfowl"]
+
+[[projects]]
+title = "BitVote"
+description = "Decentralized voting application ensuring transparency and immutability. Built for student council elections using smart contracts."
+icon = "fa-brands fa-ethereum"
+tech_stack = ["Solidity", "Hardhat", "React"]
+repo_url = "https://github.com/cc-mnnit/bitvote"
+authors = ["yyx990803", "gaearon", "taylorotwell"]
+
+[[projects]]
+title = "NetGuard"
+description = "A high-performance network traffic analyzer and firewall rule manager. Visualizes packet flows in real-time."
+icon = "fa-solid fa-shield-halved"
+tech_stack = ["Rust", "eBPF", "Tauri"]
+repo_url = "https://github.com/cc-mnnit/netguard"
+authors = ["geohot", "torvalds", "ry"]
+
+[[projects]]
+title = "VoxelEngine"
+description = "A lightweight 3D voxel game engine. Features dynamic lighting, procedural terrain generation, and modding support."
+icon = "fa-solid fa-cubes"
+tech_stack = ["C++", "OpenGL", "Lua"]
+repo_url = "https://github.com/cc-mnnit/voxel-engine"
+authors = ["ThePrimeagen", "tiangolo", "sindresorhus"]
