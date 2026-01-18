@@ -1,14 +1,10 @@
 +++
 title = "Events 2025"
-description = "Computer Coding Club events organized in 2025"
+description = "Hackathons, challenges, and workshops organized by CC Club in 2025"
 sort_by = "date"
-template = "section.html"
+template = "events/year.html"
 weight = 2
 
 [extra]
-badge = "NEW"
+badge = "2025"
 +++
-
-# 2025 Events
-
-All workshops, hackathons, competitions, and meetups organized by CC Club in 2025.
