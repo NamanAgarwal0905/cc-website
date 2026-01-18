@@ -21,15 +21,12 @@ categories = ["tutorial"]
 # Author information
 # TODO: Replace with actual author details
 [extra]
-author = "Arjun Sharma"
-author_role = "3rd Year CSE, CC Club Executive"
-author_github = "arjun-dev"
-author_linkedin = "arjun-sharma-dev"
+author = "Sidharth Roy"
+author_github = "ruanyf"
 
 # Cover image for social media sharing and post preview
 # Place image in static/images/blog/
 # TODO: Add your cover image
-cover_image = "blog/react-hooks-guide.jpg"
 
 # Estimated reading time (in minutes)
 # Can be auto-calculated, but manual is more accurate

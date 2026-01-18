@@ -1,241 +1,211 @@
-{#
-  BLOG LISTING TEMPLATE (templates/blog.html)
-  
-  Purpose: Main blog page with search and pagination
-  URL: /blog/, /blog/page/2/, etc.
-  
-  Context Variables:
-  - section: The blog section object
-  - section.pages: Array of blog post pages
-  - paginator: Pagination object (if paginate_by is set)
-  - config: Site configuration
-  
-  Features:
-  - Client-side search (searches ALL posts using global index)
-  - Displays post cards with metadata
-  - Shows tags for each post (clickable links)
-  - Pagination (configured in content/blog/_index.md)
-  - Optional section content at top or bottom
-  
-  Configuration (in content/blog/_index.md):
-  - paginate_by = 10 (posts per page)
-  - sort_by = "date" (newest first)
-  - template = "blog.html" (uses this template)
-  
-  Note: Individual blog posts use the default page.html template.
-#}
-
 {% extends "index.html" %}
 
-{% block header %}
-    {{ macros_header::header(config=config, lang=lang, section=section) }}
-{% endblock header %}
-
 {% block content %}
-    <div class="mb-12 pb-4 border-b border-gray-500/15">
-        <h1 class="flex items-center gap-3">
-            {{ section.title }}
-            {% if section.extra.badge %}
-                <span class="text-sm font-normal px-2 py-0.5 border border-gray-500/30 rounded">{{ section.extra.badge }}</span>
-            {% endif %}
-        </h1>
-        <p class="text-gray-500">{{ section.description }}</p>
-    </div>
-    
-    {% if section.extra.content_position is defined and section.extra.content_position == "bottom" %}
-        {# Render content after the list #}
-    {% else %}
-        {{ section.content | safe }}
-    {% endif %}
+<main class="blog-container">
+    <div class="blog-header">
+        <h1 class="blog-title">{{ section.title }}</h1>
+        <p class="blog-description">{{ section.description }}</p>
 
-    {# Search Section #}
-    <div class="mb-8">
-        <div class="relative max-w-md">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </div>
-            <input type="text" id="blog-search-input" placeholder="Search all articles..." class="input input-bordered w-full pl-10" />
-        </div>
-        <div class="mt-2 text-sm text-gray-500">
-            💡 Tip: Browse by <a href="{{ get_url(path='categories') | safe }}" class="link link-hover">category</a> or <a href="{{ get_url(path='tags') | safe }}" class="link link-hover">tag</a> using the badges below each article
-        </div>
+
     </div>
 
-    {# List pages in this section #}
-    {% set pages = section.pages %}
-    {% if paginator %}
-        {% set pages = paginator.pages %}
-    {% endif %}
+    <!-- Search Toolbar -->
+    <div class="blog-search-wrapper">
+        <input type="text" id="blogSearch" class="blog-search-input" placeholder="Search articles by title or tag..."
+            aria-label="Search articles">
 
-    {# Default blog list (shown when not searching) #}
-    <div id="default-blog-list">
-        {% if pages %}
-            {% if section.extra.content_position is defined and section.extra.content_position == "bottom" %}
-                <h2 class="text-2xl font-bold mb-6">Recent Posts</h2>
-            {% endif %}
-            <div class="grid gap-8 mt-8">
-                {% for page in pages %}
-                    <article class="card bg-base-200 shadow-xl border border-gray-500/15 transition hover:border-gray-500/40">
-                        <div class="card-body">
-                            <h2 class="card-title">
-                                <a href="{{ page.permalink }}" class="hover:text-primary transition-colors">{{ page.title }}</a>
-                                {% if page.extra.badge %}
-                                    <div class="badge badge-secondary">{{ page.extra.badge }}</div>
-                                {% endif %}
-                            </h2>
-                            <div class="text-sm text-gray-500 mb-2 flex flex-wrap gap-2 items-center">
-                                {% if page.date %}
-                                    <span>{{ page.date | date(format="%B %d, %Y") }}</span>
-                                {% endif %}
-                                
-                                {% if page.extra.reading_time or page.reading_time %}
-                                    <span>• {{ page.extra.reading_time | default(value=page.reading_time) }} min read</span>
-                                {% endif %}
+        <a href="https://github.com/Start-Automating/cc-website" target="_blank" rel="noopener noreferrer"
+            class="btn-search-action" title="Write a Blog Post">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+            <span class="btn-text">Write</span>
+        </a>
+    </div>
 
-                                {% if page.extra.author %}
-                                    <span>• by {{ page.extra.author }}</span>
-                                {% endif %}
-                            </div>
+    <!-- Pro Tip Banner -->
+    <div class="search-pro-tip">
+        💡 Tip: Click on any tag or category below to filter.
+    </div>
 
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                {# Display Categories first #}
-                                {% if page.taxonomies.categories %}
-                                    {% for category in page.taxonomies.categories %}
-                                        {% set cat_slug = category | slugify %}
-                                        <a href="{{ get_url(path='categories/' ~ cat_slug) | safe }}" class="badge badge-primary badge-sm" title="View all posts in category '{{ category }}'">{{ category }}</a>
-                                    {% endfor %}
-                                {% endif %}
-                                
-                                {# Display Tags as navigation links to taxonomy pages #}
-                                {% if page.taxonomies.tags %}
-                                    {% for tag in page.taxonomies.tags %}
-                                        {% set tag_slug = tag | slugify %}
-                                        <a href="{{ get_url(path='tags/' ~ tag_slug) | safe }}" class="badge badge-ghost badge-outline badge-sm hover:badge-primary transition-colors" title="View all posts tagged '{{ tag }}'">{{ tag }}</a>
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                            <p class="text-base-content/80">
-                                {% if page.description %}
-                                    {{ page.description }}
-                                {% elif page.summary %}
-                                    {{ page.summary | safe }}
-                                {% else %}
-                                    {{ page.content | striptags | truncate(length=200) }}
-                                {% endif %}
-                            </p>
-                            <div class="card-actions justify-end mt-4">
-                                <a href="{{ page.permalink }}" class="btn btn-primary btn-sm">Read More</a>
-                            </div>
-                        </div>
-                    </article>
-                {% endfor %}
-            </div>
-        {% endif %}
 
-        {# Pagination #}
+    <!-- Blog Feed -->
+    <div class="blog-feed" id="blogFeed">
         {% if paginator %}
-            <div class="join grid grid-cols-2 mt-8" id="blog-pagination">
-                {% if paginator.previous %}
-                    <a href="{{ paginator.previous }}" class="join-item btn btn-outline">Previous page</a>
-                {% else %}
-                    <button class="join-item btn btn-outline btn-disabled">Previous page</button>
+        {% set pages = paginator.pages %}
+        {% else %}
+        {% set pages = section.pages %}
+        {% endif %}
+
+        {% for page in pages %}
+        <div class="blog-card" data-title="{{ page.title | lower }}"
+            data-tags="{{ page.taxonomies.tags | default(value=[]) | join(sep=' ') | lower }} {{ page.taxonomies.categories | default(value=[]) | join(sep=' ') | lower }}">
+            <div class="card-header-row">
+                {% if page.extra.badge %}
+                <span class="card-badge">{{ page.extra.badge }}</span>
                 {% endif %}
-                {% if paginator.next %}
-                    <a href="{{ paginator.next }}" class="join-item btn btn-outline">Next page</a>
-                {% else %}
-                    <button class="join-item btn btn-outline btn-disabled">Next page</button>
+
+                {% if page.taxonomies.categories %}
+                <button class="card-category filter-trigger"
+                    data-filter="{{ page.taxonomies.categories | first | lower }}">{{ page.taxonomies.categories | first
+                    }}</button>
                 {% endif %}
             </div>
-        {% endif %}
-    </div>
 
-    {# Search results container (hidden by default) #}
-    <div id="search-results-list" class="hidden">
-        <div id="search-results-grid" class="grid gap-8 mt-8"></div>
-    </div>
+            <h2 class="card-title">
+                <a href="{{ page.permalink }}">{{ page.title }}</a>
+            </h2>
+            <p class="card-excerpt">{{ page.description | default(value=page.summary) | truncate(length=160) }}</p>
 
-    {% if section.extra.content_position is defined and section.extra.content_position == "bottom" %}
-        <div class="mt-16 pt-8 border-t border-gray-500/15">
-            {{ section.content | safe }}
+            <div class="card-meta">
+                {% if page.extra.author %}
+                {% if page.extra.author_github %}
+                <img src="https://github.com/{{ page.extra.author_github }}.png" alt="{{ page.extra.author }}"
+                    class="meta-avatar">
+                <span>By <a href="https://github.com/{{ page.extra.author_github }}" target="_blank"
+                        rel="noopener noreferrer" class="author-link">{{ page.extra.author }}</a></span>
+                {% else %}
+                <img src="https://ui-avatars.com/api/?name={{ page.extra.author | replace(from=" ", to=" +")
+                    }}&background=random&color=fff&size=64" alt="{{ page.extra.author }}" class="meta-avatar">
+                <span>By {{ page.extra.author }}</span>
+                {% endif %}
+                <span>•</span>
+                {% endif %}
+
+                <span>{{ page.date | date(format="%b %d, %Y") }}</span>
+
+                {% if page.extra.reading_time %}
+                <span>• {{ page.extra.reading_time }} min read</span>
+                {% endif %}
+
+                <div class="meta-tags">
+                    {% if page.taxonomies.tags %}
+                    {% for tag in page.taxonomies.tags %}
+                    <button class="meta-tag filter-trigger" data-filter="{{ tag | lower }}">#{{ tag }}</button>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
         </div>
-    {% endif %}
-
-    {% if config.extra.edit_url %}
-    <div class="mt-8 pt-6 border-t border-gray-500/15">
-        <div class="flex flex-wrap items-center gap-4">
-            <a href="{{ config.extra.edit_url }}/content/{{ section.relative_path }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-base-content/60 hover:text-base-content transition-colors">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                </svg>
-                <span>Edit this page</span>
-            </a>
-        </div>
+        {% endfor %}
     </div>
-    {% endif %}
+
+    <div class="no-results" id="noResults">
+        <p>No articles found matching your query.</p>
+    </div>
+
+    <!-- Pagination removed for global search -->
+
+
+
+</main>
+
+<style>
+    /* Inline styles for interactive elements that are unique to this template's logic */
+    .filter-trigger {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .card-category.filter-trigger {
+        text-decoration: none;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .card-category.filter-trigger:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+    }
+
+    /* Base link styles */
+    .card-title a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .card-title a:hover {
+        color: var(--color-primary);
+    }
+</style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('blog-search-input');
-        const defaultList = document.getElementById('default-blog-list');
-        const resultsList = document.getElementById('search-results-list');
-        const resultsGrid = document.getElementById('search-results-grid');
-        const paginator = document.getElementById('blog-pagination');
-        
-        let searchReady = false;
-        
-        if (typeof loadSearchLibraries === 'function') {
-            loadSearchLibraries(() => {
-                searchReady = true;
-                console.log("Blog search index loaded.");
-            });
-        }
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('blogSearch');
+        const cards = document.querySelectorAll('.blog-card');
+        const noResults = document.getElementById('noResults');
+        const filterTriggers = document.querySelectorAll('.filter-trigger');
 
-        function createCardHTML(item) {
-            const dateStr = item.date || '';
-            const excerpt = item.body ? item.body.substring(0, 200) + '...' : '';
-            return `
-            <article class="card bg-base-200 shadow-xl border border-gray-500/15">
-                <div class="card-body">
-                    <h2 class="card-title">
-                        <a href="${item.id}" class="hover:text-primary">${item.title}</a>
-                    </h2>
-                    ${dateStr ? `<div class="text-sm text-gray-500 mb-2">${dateStr}</div>` : ''}
-                    <p class="text-base-content/80">${excerpt}</p>
-                    <div class="card-actions justify-end mt-4">
-                        <a href="${item.id}" class="btn btn-primary btn-sm">Read More</a>
-                    </div>
-                </div>
-            </article>`;
-        }
 
-        if (searchInput) {
-            searchInput.addEventListener('input', function(e) {
-                const query = e.target.value.trim();
-                if (query.length > 0) {
-                    defaultList.classList.add('hidden');
-                    if (paginator) paginator.classList.add('hidden');
-                    resultsList.classList.remove('hidden');
 
-                    if (searchReady && window.searchIndex) {
-                        const docs = Object.values(window.searchIndex.documentStore.docs);
-                        const fuse = new Fuse(docs, { keys: ['title', 'body'], threshold: 0.3 });
-                        const results = fuse.search(query).filter(r => r.item.id.includes('/blog/'));
-                        
-                        resultsGrid.innerHTML = results.length > 0 
-                            ? results.map(r => createCardHTML(r.item)).join('')
-                            : `<div class="col-span-full text-center py-10">No matches for "${query}"</div>`;
-                    } else {
-                        resultsGrid.innerHTML = `<div class="col-span-full text-center py-10"><div class="loading loading-spinner text-primary"></div><p>Indexing posts...</p></div>`;
-                    }
+        function performFilter(term) {
+            term = term.toLowerCase().trim();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title') || '';
+                const tags = card.getAttribute('data-tags') || '';
+                const isMatch = title.includes(term) || tags.includes(term);
+
+                if (isMatch) {
+                    card.style.display = 'block';
+                    card.classList.remove('hidden');
+                    visibleCount++;
                 } else {
-                    defaultList.classList.remove('hidden');
-                    if (paginator) paginator.classList.remove('hidden');
-                    resultsList.classList.add('hidden');
+                    card.style.display = 'none';
+                    card.classList.add('hidden');
                 }
             });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+                noResults.classList.add('visible');
+            } else {
+                noResults.style.display = 'none';
+                noResults.classList.remove('visible');
+            }
         }
+
+        // Input Event Listener
+        searchInput.addEventListener('input', function (e) {
+            performFilter(e.target.value);
+        });
+
+        // Click Event Listeners
+        filterTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Get filter term
+                // Ensure we don't have newlines/whitespace issues
+                const filterText = (this.getAttribute('data-filter') || this.innerText).trim();
+                console.log(`Trigger clicked. Filter text: "${filterText}"`);
+
+                // update input
+                searchInput.value = filterText;
+
+                // Perform filter
+                performFilter(filterText);
+
+                // Smooth scroll
+                const wrapper = document.querySelector('.blog-search-wrapper');
+                if (wrapper) {
+                    window.scrollTo({
+                        top: wrapper.offsetTop - 30,
+                        behavior: 'smooth'
+                    });
+                }
+
+                searchInput.focus();
+            });
+        });
     });
 </script>
 {% endblock content %}

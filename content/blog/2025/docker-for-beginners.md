@@ -8,12 +8,9 @@ tags = ["docker", "devops", "cloud", "tutorial"]
 categories = ["tutorial"]
 
 [extra]
-author = "Vikram Reddy"
-author_role = "4th Year CSE, DevOps Team"
-author_github = "vikram-devops"
-author_linkedin = "vikram-reddy-devops"
-cover_image = "blog/docker-tutorial.jpg"
-reading_time = 14
+author = "Arjun Patel"
+author_github = "shivammathur"
+reading_time = 154
 featured = false
 +++
 

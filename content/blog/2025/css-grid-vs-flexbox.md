@@ -9,10 +9,6 @@ categories = ["comparison"]
 
 [extra]
 author = "Sneha Patel"
-author_role = "3rd Year IT, Design Team"
-author_github = "sneha-designs"
-author_linkedin = "sneha-patel-design"
-cover_image = "blog/css-grid-flexbox.jpg"
 reading_time = 8
 featured = true
 +++

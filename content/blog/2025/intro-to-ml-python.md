@@ -9,10 +9,6 @@ categories = ["tutorial"]
 
 [extra]
 author = "Amit Kumar"
-author_role = "Final Year CSE, ML Enthusiast"
-author_github = "amit-ml"
-author_linkedin = "amit-kumar-ml"
-cover_image = "blog/ml-python.jpg"
 reading_time = 15
 featured = true
 badge = "NEW"

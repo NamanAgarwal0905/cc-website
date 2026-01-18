@@ -9,10 +9,6 @@ categories = ["guide"]
 
 [extra]
 author = "Meera Iyer"
-author_role = "3rd Year CSE, Frontend Specialist"
-author_github = "meera-react"
-author_linkedin = "meera-iyer-dev"
-cover_image = "blog/react-performance.jpg"
 reading_time = 10
 +++
 

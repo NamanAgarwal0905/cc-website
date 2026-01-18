@@ -8,12 +8,9 @@ tags = ["linux", "terminal", "devops", "productivity"]
 categories = ["guide"]
 
 [extra]
-author = "Pradeep Singh"
-author_role = "Alumni 2024, DevOps Engineer at Amazon"
-author_github = "pradeep-devops"
-author_linkedin = "pradeep-singh-devops"
-cover_image = "blog/linux-commands.jpg"
-reading_time = 12
+author = "Rohan Gupta"
+author_github = "kovidgoyal"
+reading_time = 102
 badge = "Essential"
 +++
 

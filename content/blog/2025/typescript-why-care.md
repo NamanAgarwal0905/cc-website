@@ -9,10 +9,7 @@ categories = ["opinion"]
 
 [extra]
 author = "Anjali Verma"
-author_role = "3rd Year CSE, Full Stack Developer"
-author_github = "anjali-fullstack"
-author_linkedin = "anjali-verma-dev"
-cover_image = "blog/typescript-guide.jpg"
+author_github = "gaearon"
 reading_time = 11
 +++
 

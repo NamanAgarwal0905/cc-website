@@ -8,11 +8,8 @@ tags = ["nodejs", "backend", "api", "express", "tutorial"]
 categories = ["tutorial"]
 
 [extra]
-author = "Rahul Singh"
-author_role = "4th Year CSE, Backend Lead"
-author_github = "rahul-backend"
-author_linkedin = "rahul-singh-dev"
-cover_image = "blog/nodejs-api.jpg"
+author = "Priya Sharma"
+author_github = "fabpot"
 reading_time = 12
 featured = false
 badge = "Tutorial"

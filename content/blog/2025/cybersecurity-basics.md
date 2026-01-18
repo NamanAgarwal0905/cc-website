@@ -4,17 +4,13 @@ date = 2025-09-08
 description = "Essential security practices to protect your applications from common vulnerabilities and attacks."
 
 [taxonomies]
-tags = ["cybersecurity", "security", "web-development", "best-practices"]
+tags = ["cybersecurity", "web", "best-practices"]
 categories = ["guide"]
 
 [extra]
 author = "Deepak Singh"
-author_role = "Final Year CSE, Security Team"
-author_github = "deepak-security"
-author_linkedin = "deepak-singh-security"
-cover_image = "blog/cybersecurity-basics.jpg"
+author_github = "torvalds"
 reading_time = 16
-featured = true
 badge = "Important"
 +++
 
@@ -47,11 +43,3 @@ Use CSRF tokens for state-changing operations.
 - ✅ Validate all inputs
 - ✅ Keep dependencies updated
 - ✅ Use security headers
-
-## Tools
-
-- OWASP ZAP
-- Burp Suite
-- npm audit
-
-More security tutorials coming soon!

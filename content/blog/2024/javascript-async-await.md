@@ -9,10 +9,6 @@ categories = ["tutorial"]
 
 [extra]
 author = "Sanjay Kumar"
-author_role = "Alumni 2024, Frontend Developer at Flipkart"
-author_github = "sanjay-frontend"
-author_linkedin = "sanjay-kumar-dev"
-cover_image = "blog/async-await.jpg"
 reading_time = 9
 featured = true
 +++

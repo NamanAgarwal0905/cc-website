@@ -9,10 +9,6 @@ categories = ["guide"]
 
 [extra]
 author = "Priya Sharma"
-author_role = "3rd Year CSE, Open Source Contributor"
-author_github = "priya-git"
-author_linkedin = "priya-sharma-dev"
-cover_image = "blog/git-collaboration.jpg"
 reading_time = 10
 +++
 

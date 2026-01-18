@@ -9,10 +9,6 @@ categories = ["comparison"]
 
 [extra]
 author = "Rohan Malhotra"
-author_role = "4th Year CSE, API Architect"
-author_github = "rohan-apis"
-author_linkedin = "rohan-malhotra-dev"
-cover_image = "blog/graphql-vs-rest.jpg"
 reading_time = 9
 +++
 

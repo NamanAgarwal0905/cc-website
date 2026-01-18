@@ -9,10 +9,6 @@ categories = ["guide"]
 
 [extra]
 author = "Neha Gupta"
-author_role = "Alumni 2024, SDE at Google"
-author_github = "neha-cp"
-author_linkedin = "neha-gupta-sde"
-cover_image = "blog/competitive-programming.jpg"
 reading_time = 14
 featured = true
 badge = "Career"
