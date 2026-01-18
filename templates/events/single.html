@@ -18,7 +18,7 @@
     {# ========== EVENT HERO ========== #}
     <section class="event-hero">
         {# Background #}
-        <div class="event-hero-bg">
+        <div class="event-hero-bg {% if not page.extra.images %}no-image{% endif %}">
             {% if page.extra.images %}
             {% set first_image = page.extra.images | first %}
             <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ first_image) }}" alt="{{ page.title }}">

@@ -57,7 +57,7 @@
                 {% for event in all_events %}
                 <article class="hero-slide {% if loop.first %}active{% endif %}" data-index="{{ loop.index0 }}">
                     {# Background with parallax #}
-                    <div class="hero-slide-bg">
+                    <div class="hero-slide-bg {% if not event.extra.images %}no-image{% endif %}">
                         {% if event.extra.images %}
                         {% set first_image = event.extra.images | first %}
                         <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ first_image) }}" alt="{{ event.title }}" loading="{% if loop.first %}eager{% else %}lazy{% endif %}">
@@ -209,7 +209,7 @@
                data-year="{{ event.date | date(format='%Y') }}"
                data-domain="{{ event.extra.event_type | default(value='other') }}">
                 {# Card Image #}
-                <div class="event-card-visual">
+                <div class="event-card-visual {% if not event.extra.images %}no-image{% endif %}">
                     {% if event.extra.images %}
                     {% set first_image = event.extra.images | first %}
                     <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ first_image) }}" alt="{{ event.title }}" loading="lazy">
