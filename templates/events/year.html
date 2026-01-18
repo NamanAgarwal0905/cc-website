@@ -1,0 +1,266 @@
+{#
+  EVENTS YEAR TEMPLATE (templates/events-year.html)
+
+  Displays all events for a specific year in a card grid layout
+  with domain filtering and clean header
+#}
+
+{% extends "index.html" %}
+
+{% block header %}
+    {{ macros_header::header(config=config, lang=lang, section=section) }}
+{% endblock header %}
+
+{% block content %}
+    {# Get year from section title or path #}
+    {% set year_title = section.title | default(value="Events") %}
+    {% set year_value = year_title | replace(from="Events ", to="") %}
+
+    {# Collect events and categorize by type #}
+    {% set all_events = section.pages %}
+    {% set hackathons = [] %}
+    {% set challenges = [] %}
+    {% set workshops = [] %}
+    {% set programs = [] %}
+
+    {% for event in all_events %}
+        {% if event.extra.event_type == "hackathon" %}
+            {% set_global hackathons = hackathons | concat(with=[event]) %}
+        {% elif event.extra.event_type == "challenge" %}
+            {% set_global challenges = challenges | concat(with=[event]) %}
+        {% elif event.extra.event_type == "workshop" %}
+            {% set_global workshops = workshops | concat(with=[event]) %}
+        {% elif event.extra.event_type == "program" %}
+            {% set_global programs = programs | concat(with=[event]) %}
+        {% endif %}
+    {% endfor %}
+
+    {# ========== YEAR HERO HEADER ========== #}
+    <section class="year-hero">
+        <div class="year-hero-content">
+            <a href="/events/" class="year-back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>All Events</span>
+            </a>
+            <h1 class="year-hero-title">
+                <span class="year-hero-year">{{ year_value }}</span>
+                <span class="year-hero-label">Events</span>
+            </h1>
+            <p class="year-hero-desc">{{ section.description | default(value="Explore our hackathons, challenges, and workshops from " ~ year_value) }}</p>
+
+            {# Stats bar #}
+            <div class="year-stats">
+                <div class="year-stat">
+                    <span class="year-stat-value">{{ all_events | length }}</span>
+                    <span class="year-stat-label">Events</span>
+                </div>
+                {% if hackathons | length > 0 %}
+                <div class="year-stat">
+                    <span class="year-stat-value">{{ hackathons | length }}</span>
+                    <span class="year-stat-label">Hackathons</span>
+                </div>
+                {% endif %}
+                {% if challenges | length > 0 %}
+                <div class="year-stat">
+                    <span class="year-stat-value">{{ challenges | length }}</span>
+                    <span class="year-stat-label">Challenges</span>
+                </div>
+                {% endif %}
+                {% if workshops | length > 0 %}
+                <div class="year-stat">
+                    <span class="year-stat-value">{{ workshops | length }}</span>
+                    <span class="year-stat-label">Workshops</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {# Decorative elements #}
+        <div class="year-hero-decoration">
+            <span class="year-hero-big-year">{{ year_value }}</span>
+        </div>
+    </section>
+
+    {# ========== EVENTS LISTING ========== #}
+    <section class="events-listing year-listing">
+        {# Filter Controls #}
+        {% if all_events | length > 1 %}
+        <div class="year-filters">
+            <div class="filter-group">
+                <span class="filter-label">Filter by</span>
+                <div class="filter-buttons" role="tablist" data-filter="domain">
+                    <button class="filter-btn active" role="tab" data-value="all">
+                        All
+                        <span class="filter-count">{{ all_events | length }}</span>
+                    </button>
+                    {% if hackathons | length > 0 %}
+                    <button class="filter-btn" role="tab" data-value="hackathon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        Hackathons
+                        <span class="filter-count">{{ hackathons | length }}</span>
+                    </button>
+                    {% endif %}
+                    {% if challenges | length > 0 %}
+                    <button class="filter-btn" role="tab" data-value="challenge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Challenges
+                        <span class="filter-count">{{ challenges | length }}</span>
+                    </button>
+                    {% endif %}
+                    {% if workshops | length > 0 %}
+                    <button class="filter-btn" role="tab" data-value="workshop">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        Workshops
+                        <span class="filter-count">{{ workshops | length }}</span>
+                    </button>
+                    {% endif %}
+                    {% if programs | length > 0 %}
+                    <button class="filter-btn" role="tab" data-value="program">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        Programs
+                        <span class="filter-count">{{ programs | length }}</span>
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {# Events Grid #}
+        <div class="events-grid" data-events-grid>
+            {% for event in all_events %}
+            <a href="{{ event.permalink }}" class="event-card"
+               data-year="{{ event.date | date(format='%Y') }}"
+               data-domain="{{ event.extra.event_type | default(value='other') }}">
+                {# Card Image #}
+                <div class="event-card-visual">
+                    {% if event.extra.images %}
+                    <img src="{{ event.extra.images | first }}" alt="{{ event.title }}" loading="lazy">
+                    {% endif %}
+                    <div class="event-card-visual-overlay"></div>
+
+                    {# Floating badges #}
+                    <div class="event-card-badges">
+                        {% if event.extra.event_type %}
+                        <span class="event-card-type {{ event.extra.event_type }}">{{ event.extra.event_type }}</span>
+                        {% endif %}
+                        {% if event.extra.status %}
+                        <span class="event-card-status {{ event.extra.status }}">{{ event.extra.status }}</span>
+                        {% endif %}
+                    </div>
+
+                    {# Prize badge #}
+                    {% if event.extra.prize_pool %}
+                    <div class="event-card-prize">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                        <span>{{ event.extra.prize_pool }}</span>
+                    </div>
+                    {% endif %}
+
+                    {# External link indicator #}
+                    {% if event.extra.external_link %}
+                    <div class="event-card-external" title="Has external site">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </div>
+                    {% endif %}
+                </div>
+
+                {# Card Content #}
+                <div class="event-card-body">
+                    <h3 class="event-card-title">{{ event.title }}</h3>
+                    <p class="event-card-desc">{{ event.description }}</p>
+
+                    <div class="event-card-footer">
+                        <div class="event-card-meta">
+                            <span class="event-card-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                {{ event.date | date(format="%B %d, %Y") }}
+                            </span>
+                            {% if event.extra.location %}
+                            <span class="event-card-location">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                {{ event.extra.location }}
+                            </span>
+                            {% endif %}
+                        </div>
+                        <span class="event-card-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        {# Empty State #}
+        {% if all_events | length == 0 %}
+        <div class="events-empty-state visible">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p>No events scheduled for {{ year_value }} yet</p>
+            <a href="/events/" class="events-back-btn">View All Events</a>
+        </div>
+        {% endif %}
+
+        {# Filtered Empty State #}
+        <div class="events-empty-state" data-empty-state style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            <p>No events found matching your filter</p>
+            <button class="events-reset-filters" data-reset-filters>Reset Filter</button>
+        </div>
+    </section>
+
+    {# ========== JAVASCRIPT FOR FILTERING ========== #}
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const eventCards = document.querySelectorAll('.event-card');
+        const emptyState = document.querySelector('[data-empty-state]');
+        const resetBtn = document.querySelector('[data-reset-filters]');
+
+        let activeFilter = 'all';
+
+        function applyFilters() {
+            let visibleCount = 0;
+
+            eventCards.forEach(card => {
+                const cardDomain = card.dataset.domain;
+                const isVisible = activeFilter === 'all' || cardDomain === activeFilter;
+
+                card.style.display = isVisible ? '' : 'none';
+                card.classList.toggle('filtered-out', !isVisible);
+
+                if (isVisible) visibleCount++;
+            });
+
+            if (emptyState) {
+                emptyState.style.display = visibleCount === 0 ? 'flex' : 'none';
+            }
+        }
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filterGroup = btn.closest('[data-filter]');
+                const filterValue = btn.dataset.value;
+
+                // Update active state
+                filterGroup.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Update filter
+                activeFilter = filterValue;
+                applyFilters();
+            });
+        });
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                activeFilter = 'all';
+                filterButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.value === 'all');
+                });
+                applyFilters();
+            });
+        }
+    });
+    </script>
+{% endblock content %}
