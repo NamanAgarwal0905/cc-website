@@ -8,9 +8,9 @@
 
 {# SVG Clip Path Definition - Modern Folder Shape with Curved Corners #}
 <svg width="0" height="0" style="position: absolute;">
-  <defs>
-    <clipPath id="folderMask" clipPathUnits="objectBoundingBox">
-      <path d="M0,0.15 
+    <defs>
+        <clipPath id="folderMask" clipPathUnits="objectBoundingBox">
+            <path d="M0,0.15 
                C0,0.08, 0.02,0.05, 0.08,0.05 
                H0.5 
                C0.55,0.05, 0.58,0, 0.63,0 
@@ -21,8 +21,8 @@
                H0.1 
                C0.04,1, 0,0.96, 0,0.9 
                Z" />
-    </clipPath>
-  </defs>
+        </clipPath>
+    </defs>
 </svg>
 
 <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-7xl">
@@ -46,15 +46,15 @@
             <div class="folder-card">
                 {# Wrapper with clip-path applied #}
                 <div class="image-wrapper">
-                    <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ roadmap.extra.carousel_image) }}" 
-                         alt="{{ roadmap.extra.carousel_title | default(value=roadmap.title) }}"
-                         class="card-image"
-                         loading="lazy">
+                    <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ roadmap.extra.carousel_image) }}"
+                        alt="{{ roadmap.extra.carousel_title | default(value=roadmap.title) }}"
+                        class="folder-card-image" loading="lazy">
                 </div>
                 <div class="card-border"></div>
                 <div class="card-glow"></div>
-                <div class="card-content">
-                    <h3 class="card-title">{{ roadmap.extra.carousel_title | default(value=roadmap.title) }}</h3>
+                <div class="folder-card-content">
+                    <h3 class="folder-card-title">{{ roadmap.extra.carousel_title | default(value=roadmap.title) }}
+                    </h3>
                     <div class="dash"></div>
                 </div>
             </div>
