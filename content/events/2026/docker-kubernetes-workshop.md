@@ -2,11 +2,13 @@
 title = "Docker & Kubernetes Fundamentals Workshop"
 date = 2026-01-05
 description = "Hands-on workshop covering containerization with Docker and orchestration with Kubernetes. Beginner-friendly!"
+template = "events/single.html"
 
 [extra]
 event_type = "workshop"
 status = "upcoming"
 badge = "UPCOMING"
+location = "Computer Lab 3, MNNIT"
 registration_open = true
 registration_deadline = "2026-01-03"
 registration_link = "https://forms.gle/your-workshop-form"
