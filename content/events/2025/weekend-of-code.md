@@ -32,53 +32,63 @@ images = [
 name = "4 sum"
 project = "Sign It or Miss It"
 prize = "1st"
+category = "DevJam"
 
 [[extra.winners]]
 name = "MummykeLaadle"
 project = "Lexica"
 prize = "2nd"
+category = "DevJam"
 
 [[extra.winners]]
 name = "BrainWashingtonEC"
 project = "CampusBeacon"
 prize = "3rd"
+category = "DevJam"
 
 # Turing's Playground
 [[extra.winners]]
 name = "WeXIST"
 project = "Sands of Commerce"
 prize = "1st"
+category = "Turing's Playground"
 
 [[extra.winners]]
 name = "Am I Audible?"
 project = "Pharaoh Vision"
 prize = "2nd"
+category = "Turing's Playground"
 
 [[extra.winners]]
 name = "CJython"
 project = "RLTradingAgent"
 prize = "3rd"
+category = "Turing's Playground"
 
 [[extra.winners]]
 name = "Sphinx Algorithmists"
 # project = "StudyBuddy"
 prize = "Best First Year Team"
+category = "Turing's Playground"
 
 # CodeStart
 [[extra.winners]]
 name = "Cjython"
 # project = "MedAssist AI"
 prize = "1st"
+category = "CodeStart"
 
 [[extra.winners]]
 name = "NewBees"
 # project = "EcoTrack"
 prize = "2nd"
+category = "CodeStart"
 
 [[extra.winners]]
 name = "Vaseline_Cocoa_Glow"
 # project = "StudyBuddy"
 prize = "3rd"
+category = "CodeStart"
 
 
 # --- Featured Projects (The Showcase) ---
@@ -98,6 +108,7 @@ tech = ["OpenCV", "MediaPipe", "cvzone", "C#"] # Tech stack used.
 demo = "https://drive.google.com/file/d/1PPhX8XheqYP_d_cQTRSzR-8nKVoZujMC/view?pli=1"
 github = "https://github.com/4SumMNNIT/SIMI"      # Optional: Link to code.
 award = "1st Place"                    # Optional: Badge text.
+category = "DevJam"
 
 [[extra.projects]]
 name = "Lexica"
@@ -106,6 +117,7 @@ description = "Lexica enhances the reading experience by allowing users to seaml
 tech = ["React.js", "Node.js", "MongoDB", "DataMuse API"]
 github = "https://github.com/mummykelaadle/lexica"
 award = "2nd Place"
+category = "DevJam"
 
 [[extra.projects]]
 name = "CampusBeacon"
@@ -114,6 +126,7 @@ description = "CampusBeacon is an exclusive MNNIT website which connects student
 tech = ["React.js", "Node.js", "Express.js", "Redux "]
 github = "https://github.com/ayush-jadaun/CampusBeacon"
 award = "3rd Place"
+category = "DevJam"
 
 
 [[extra.projects]]
@@ -123,6 +136,7 @@ description = "Sands of Commerce utilizes reinforcement learning techniques to o
 tech = ["Google Colab", "Machine Learning"] # Tech stack used.
 github = "https://github.com/WeXIST10/WeXIST/tree/final"      # Optional: Link to code.
 award = "1st Place"                    # Optional: Badge text.
+category = "Turing's Playground"
 
 [[extra.projects]]
 name = "Pharaohs Vision"
@@ -131,6 +145,7 @@ description = "This project provides a machine learning pipeline for training an
 tech = ["Python", "CNN", "JupyterNB"]
 github = "https://github.com/vanshika-0305/Am-I-Audible"
 award = "2nd Place"
+category = "Turing's Playground"
 
 [[extra.projects]]
 name = "RLTradingAgent"
@@ -139,10 +154,9 @@ description = "This project implements a Reinforcement Learning (RL) agent for s
 tech = ["Python 3", "NumPy & Pandas", "Yahoo Finance API", "FinRL"]
 github = "https://github.com/UditanshSri/RLTradingAgent"
 award = "3rd Place"
+category = "Turing's Playground"
 +++
 
-# Event Content (The Article)
-# Write the full details of the event below using Markdown.
 
 ## About Weekend of Code
 

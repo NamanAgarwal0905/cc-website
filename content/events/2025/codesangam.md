@@ -29,57 +29,68 @@ images = [
 name = "Parsing Nemo"
 project = "TripWhat"
 prize = "1st Place"
+category = "Webster"
 
 [[extra.winners]]
 name = "Async Synapse"
 project = "SyncSparks"
 prize = "2nd Place"
+category = "Webster"
 
 [[extra.winners]]
 name = "Pookie Blinders"
 project = "MediDose"
 prize = "3rd Place"
+category = "Webster"
 
 # Softablitz Winners
 [[extra.winners]]
 name = "syntax_squad"
 project = "Scriptoria"
 prize = "1st Place"
+category = "Softablitz"
 
 [[extra.winners]]
 name = "BabaYaga"
 project = "AiTerm"
 prize = "2nd Place"
+category = "Softablitz"
 
 [[extra.winners]]
 name = "LABYRUNNERS"
 project = "PhantomBreach"
 prize = "3rd Place"
+category = "Softablitz"
 
 # Logical Rhythm Winners
 [[extra.winners]]
 name = "Tricksters"
 project = "Real Time Object Detection"
 prize = "1st Place"
+category = "Logical Rhythm"
 
 # Droidrush Winners
 [[extra.winners]]
 name = "Kal aana"
 project = "ICMT- I CAN MANAGE THING"
 prize = "1st Place"       
+category = "DroidRush"
 
 # Contrihub Winners
 [[extra.winners]]
 name = "Ayush Jadaun"
 prize = "1st Place"
+category = "ContriHub"
 
 [[extra.winners]]
 name = "Ritik Chaudhary"
 prize = "2nd Place"
+category = "ContriHub"
 
 [[extra.winners]]
 name = "Taukeer Akbar"
 prize = "3rd Place" 
+category = "ContriHub"
 
 
 # --- Featured Projects (The Showcase) ---
@@ -100,6 +111,7 @@ tech = ["React + TypeScript", "Node.js + Express", "MongoDB", "LangGraph (MCP)",
 github = "https://github.com/samudraneel05/TripWhat"      
 
 award = "1st Place"    
+category = "Webster"
 
  [[extra.projects]]
 event = "Webster"
@@ -123,6 +135,7 @@ tech = [
 github = "https://github.com/ShouryaMishra2006/SyncSparks"      
 
 award = "2nd Place" 
+category = "Webster"
 
 [[extra.projects]]
 event = "Webster"
@@ -136,6 +149,7 @@ tech = ["MongoDB", "Express.js", "React", "Node.js", "Groq NLP / AI Bot"]
 
 demo = "https://www.youtube.com/watch?v=QyM6PM0NbXg"
 award = "3rd Place"
+category = "Webster"
 
 
  # Logical Rhythm
@@ -151,6 +165,7 @@ tech = ["Python", "YOLOv8", "Deep Learning"]
 github = "https://github.com/AbhishekPandey91/Carnival_Vision_Challenge"
 
 award = "1st Place"
+category = "Logical Rhythm"
 
  # Droidrush
 [[extra.projects]]
@@ -166,6 +181,7 @@ tech = ["Android Studio", "Java", "XML", "SQLite", "Firebase"]
 github = "https://github.com/arnavraj-7/ICMT---I-Can-Manage-Things"
 
 award = "1st Place"
+category = "DroidRush"
 +++
 
 ## About CodeSangam 2025
