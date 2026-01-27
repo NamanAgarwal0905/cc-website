@@ -14,6 +14,7 @@ external_link = "https://codesangam2k25.devfolio.co/overview"
 location = "MNNIT Allahabad"
 participants = 500
 banner_image = "images/events/2025/codesangam/1.png"
+show_banner = true
 
 # --- Event Images ---
 images = [

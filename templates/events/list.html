@@ -327,6 +327,9 @@ Features:
                     {% if event.extra.event_type %}
                     <span class="event-card-type {{ event.extra.event_type }}">{{ event.extra.event_type }}</span>
                     {% endif %}
+                    {% if event.extra.status %}
+                    <span class="event-card-status {{ event.extra.status }}">{{ event.extra.status }}</span>
+                    {% endif %}
                 </div>
 
                 {# External link indicator #}
