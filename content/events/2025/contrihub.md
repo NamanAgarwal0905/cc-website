@@ -11,7 +11,7 @@ status = "completed"
 external_link = "https://computercodingclub.in/contrihub"
 location = "MNNIT Allahabad"
 participants = 100
-banner_image = "images/events/2025/contrihub/3.webp"
+banner_image = "events/2025/contrihub/3.webp"
 
 # --- Event Images ---
 images = [

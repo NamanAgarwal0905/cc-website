@@ -13,7 +13,7 @@ external_link = "https://www.hack36.in/"
 location = "MNNIT Allahabad"
 participants = 600
 prize_pool = "Rs. 1,00,000"
-banner_image = "images/events/2025/hack36/7.webp"
+banner_image = "events/2025/hack36/7.webp"
 show_banner = true
 
 # --- Event Images ---

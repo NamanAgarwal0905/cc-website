@@ -303,8 +303,12 @@ Features:
                     {% endif %}
                 </div>
                 {% if winner.avatar %}
+                {% if winner.avatar is starting_with("http") %}
+                <img src="{{ winner.avatar }}" alt="{{ winner.name }}" class="podium-avatar">
+                {% else %}
                 <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ winner.avatar) }}" alt="{{ winner.name }}"
                     class="podium-avatar">
+                {% endif %}
                 {% else %}
                 <div class="podium-avatar-placeholder">
                     {{ winner.name | truncate(length=2, end="") | upper }}
@@ -340,8 +344,12 @@ Features:
             <div class="winner-list-item">
                 <span class="winner-rank">#{{ loop.index }}</span>
                 {% if winner.avatar %}
+                {% if winner.avatar is starting_with("http") %}
+                <img src="{{ winner.avatar }}" alt="{{ winner.name }}" class="winner-avatar">
+                {% else %}
                 <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ winner.avatar) }}" alt="{{ winner.name }}"
                     class="winner-avatar">
+                {% endif %}
                 {% else %}
                 <div class="winner-avatar-placeholder">{{ winner.name | truncate(length=2, end="") | upper }}</div>
                 {% endif %}
@@ -477,8 +485,12 @@ Features:
             {# Project Image #}
             {% if project.image %}
             <div class="project-card-image">
+                {% if project.image is starting_with("http") %}
+                <img src="{{ project.image }}" alt="{{ project.name }}" loading="lazy">
+                {% else %}
                 <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ project.image) }}"
                     alt="{{ project.name }}" loading="lazy">
+                {% endif %}
             </div>
             {% endif %}
 

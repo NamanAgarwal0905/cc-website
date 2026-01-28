@@ -12,7 +12,7 @@ badge = "HIGHLIGHT"
 date_label = "Ongoing Series"
 location = "MNNIT Allahabad"
 show_banner = true
-banner_image = "images/events/programs/cc-classes/1.webp"
+banner_image = "events/programs/cc-classes/1.webp"
 images = [
     "events/programs/cc-classes/1.webp",
     "events/programs/cc-classes/2.webp",
@@ -24,13 +24,6 @@ images = [
     "events/programs/cc-classes/8.webp"
 ]
 
-# --- Featured Projects/Content ---
-# You can add success stories here later
-
-[[extra.winners]]
-name = "Join Us"
-prize = "Open to All"
-category = "Info"
 +++
 
 ## About CC Classes

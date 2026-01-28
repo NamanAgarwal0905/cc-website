@@ -12,7 +12,7 @@ badge = "HIGHLIGHT"
 date_label = "Periodic Talks"
 location = "MNNIT Allahabad"
 show_banner = true
-banner_image = "images/events/programs/alumni-connect/1.webp"
+banner_image = "events/programs/alumni-connect/1.webp"
 images = [
     "events/programs/alumni-connect/1.webp",
     "events/programs/alumni-connect/2.webp",

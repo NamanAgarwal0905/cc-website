@@ -11,7 +11,7 @@ status = "completed"
 external_link = "https://codeforces.com/group/hUywLYmr80/blog/entry/17218"
 location = "MNNIT Allahabad"
 participants = "240+"
-banner_image = "images/events/2025/opc/1.webp"
+banner_image = "events/2025/opc/1.webp"
 
 # --- Event Images ---
 images = [

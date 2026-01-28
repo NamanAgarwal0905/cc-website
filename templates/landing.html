@@ -383,8 +383,13 @@
                 </p>
                 {% if section.extra.final_cta_section.image %}
                     <div class="mb-12">
+                        {% if section.extra.final_cta_section.image is starting_with("http") %}
                         <img src="{{ section.extra.final_cta_section.image | safe }}" alt="CTA Image"
                              class="mx-auto max-w-4xl rounded-xl shadow-2xl" />
+                        {% else %}
+                        <img src="{{ get_url(path=config.extra.image_base_url ~ '/' ~ section.extra.final_cta_section.image) }}" alt="CTA Image"
+                             class="mx-auto max-w-4xl rounded-xl shadow-2xl" />
+                        {% endif %}
                     </div>
                 {% endif %}
                 {% if section.extra.final_cta_section.button %}

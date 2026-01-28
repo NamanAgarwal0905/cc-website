@@ -13,7 +13,7 @@ external_link = "https://codeforces.com/blog/entry/136247"
 location = "MNNIT Allahabad"
 participants = 300
 prize_pool = "Rs. 15,000"
-banner_image = "images/events/2025/insomnia/4.webp"
+banner_image = "events/2025/insomnia/4.webp"
 
 # --- Event Images ---
 images = [
